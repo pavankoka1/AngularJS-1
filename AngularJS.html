@@ -1,52 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="langApp">
+<html lang="en" ng-app="">
 <head>
 	<meta charset="UTF-8">
-	<title>AngularJS | Hands On!</title>
+	<title>AngularJS | Filters</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 </head>
+
 <body>
-	<div ng-controller="languages">
-		Select: 
-		<button ng-click="php()">
-			PHP
-		</button>
-		<button ng-click="java()">
-			Java
-		</button>
-		<button ng-click="cpp()">
-			C++
-		</button>
-		<button ng-click="js()">
-			JavaScript
-		</button>
+	Name: <input type="text" ng-model="name"><br>
+	Welcome {{name | uppercase}} <br>
 
-		<p>You have selected: {{ myFavLang }}</p>
-	</div>
-
-	<script>
-		var application = angular.module('langApp', []);
-		application.controller('languages', function($scope) {
-
-			$scope.myFavLang = "None";
-
-			$scope.php = function(){
-				$scope.myFavLang = 'PHP';
-			}
-
-			$scope.java = function(){
-				$scope.myFavLang = 'Java';
-			}
-
-			$scope.cpp = function(){
-				$scope.myFavLang = 'C++';
-			}
-
-			$scope.js = function(){
-				$scope.myFavLang = 'JavaScript';
-			}
-
-		});
-	</script>
+	Currency: <input type="text" ng-model="money"><br>
+	{{money | currency:"Rs.":5}}
 </body>
+
 </html>
